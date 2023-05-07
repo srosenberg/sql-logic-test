@@ -180,7 +180,9 @@ public abstract class JdbcExecutor extends SqlSltTestExecutor {
       options.error(ex);
       // Failures during the execution of statements are fatal.
       // Only failures in queries are handled.
-      throw ex;
+      if (statement.shouldPass) {
+        throw ex;
+      }
     }
     this.statementsExecuted++;
   }

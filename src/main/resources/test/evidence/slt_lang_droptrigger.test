@@ -16,6 +16,7 @@ statement ok
 CREATE INDEX t1i1 ON t1(x)
 
 onlyif mssql
+onlyif cockroachdb
 halt
 
 # EVIDENCE-OF: R-61172-15671 The DROP TRIGGER statement removes a

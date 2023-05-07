@@ -21,6 +21,7 @@ CREATE INDEX t1i1 ON t1(x)
 
 # skip this entire file if ms sql server
 onlyif mssql
+onlyif cockroachdb
 halt
 
 # skip this entire file if oracle

@@ -75,13 +75,13 @@ public class SltTestFile {
      * @return       True if the stat/query is executed.
      */
     public boolean accept(List<String> skip, List<String> only) {
-      if (only.contains("postgresql")) {
+      if (only.contains("postgresql") || only.contains("cockroachdb")) {
         return true;
       }
       if (!only.isEmpty()) {
         return false;
       }
-      return !skip.contains("postgresql");
+      return !skip.contains("postgresql") && !skip.contains("cockroachdb");
     }
   }
 

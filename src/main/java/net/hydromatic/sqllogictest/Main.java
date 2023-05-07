@@ -22,6 +22,7 @@
  */
 package net.hydromatic.sqllogictest;
 
+import net.hydromatic.sqllogictest.executors.CockroachDBExecutor;
 import net.hydromatic.sqllogictest.executors.HsqldbExecutor;
 import net.hydromatic.sqllogictest.executors.NoExecutor;
 import net.hydromatic.sqllogictest.executors.PostgresExecutor;
@@ -49,9 +50,12 @@ public class Main {
       String... argv) throws IOException {
     ExecutionOptions options = new ExecutionOptions(exit, out, err);
     options.setBinaryName("slt");
+
     NoExecutor.register(options);
     HsqldbExecutor.register(options);
     PostgresExecutor.register(options);
+    CockroachDBExecutor.register(options);
+
     int parse = options.parse(argv);
     if (parse != 0) {
       return parse;
